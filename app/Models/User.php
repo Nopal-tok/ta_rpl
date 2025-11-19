@@ -45,4 +45,28 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    // USER → PROFILE (Pelamar)
+    public function profile()
+    {
+        return $this->hasOne(Profile::class);
+    }
+
+    // USER → COMPANY (Perusahaan)
+    public function company()
+    {
+        return $this->hasOne(Company::class);
+    }
+
+    // USER → APPLICATIONS (Lamaran)
+    public function applications()
+    {
+        return $this->hasMany(Application::class);
+    }
+
+    // USER → SAVED JOBS
+    public function savedJobs()
+    {
+        return $this->hasMany(SavedJob::class);
+    }
 }
