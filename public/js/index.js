@@ -1,3 +1,14 @@
+document.addEventListener('DOMContentLoaded', function () {
+    const likeBtn = document.getElementById('saveBtn');
+    const likeOutline = document.getElementById('iconOutline');
+    const likeFill = document.getElementById('iconFill');
+
+    likeBtn.addEventListener('click', function () {
+        likeOutline.classList.toggle('hidden');
+        likeFill.classList.toggle('hidden');
+    });
+});
+
 document.querySelectorAll('.toggle-pass').forEach(toggle => {
     toggle.addEventListener('click', function () {
         const targetId = this.getAttribute('data-target');
@@ -65,4 +76,40 @@ document.addEventListener('DOMContentLoaded', () => {
         cvUploadCard.classList.remove(activeDragClass);
         handleFileSelection(event.dataTransfer.files);
     });
+});
+
+const sendBtn = document.getElementById('sendBtn');
+const emailInput = document.getElementById('emailInput');
+const timerDisplay = document.getElementById('timerDisplay');
+
+let cooldown = 60;
+
+sendBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+
+    if (!emailInput.value) {
+        alert("Masukin email dulu bro!");
+        return;
+    }
+
+    // disable tombol, tapi biar ga ilang
+    sendBtn.style.pointerEvents = "none"; // ga bisa diklik
+    sendBtn.style.opacity = 0.6; // kasih efek disable, tapi tetap keliatan
+
+    let remaining = cooldown;
+    timerDisplay.textContent = `Wait ${remaining}s before resend`;
+
+    const interval = setInterval(() => {
+        remaining--;
+        timerDisplay.textContent = `Wait ${remaining}s before resend`;
+
+        if (remaining <= 0) {
+            clearInterval(interval);
+            timerDisplay.textContent = "";
+            sendBtn.style.pointerEvents = "auto";
+            sendBtn.style.opacity = 1; // balik normal
+        }
+    }, 1000);
+
+    console.log("Reset link dikirim ke:", emailInput.value);
 });

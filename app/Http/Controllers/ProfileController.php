@@ -123,5 +123,18 @@ class ProfileController extends Controller
         return back()->with('success', 'Password changed successfully.');
     }
 
+    /**
+     * Public company contact page.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Contracts\View\View
+     */
+    public function companyContact($id)
+    {
+        $company = Company::findOrFail($id);
+
+        return view('company_contact', compact('company'));
+    }
+
 
 }

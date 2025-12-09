@@ -52,6 +52,7 @@
                                     @if(auth()->user()->role === 'perusahaan')
                                         <li><a class="dropdown-item" href="{{ route('employer.profile') }}">Profile</a></li>
                                         <li><a class="dropdown-item" href="{{ url('/change_password') }}">Change password</a></li>
+                                        <li><a class="dropdown-item" href="{{ route('job.list') }}">Job Posted</a></li>
                                     @endif
                                     <li><hr class="dropdown-divider"></li>
                                     <li>
@@ -135,8 +136,8 @@
                                     <!-- Action Buttons -->
                                     <div class="col-md-4 d-flex flex-column justify-content-between align-items-end">
                                         <div class="d-flex gap-2">
-                                            <a href="{{ route('job.show', $savedJob->jobListing->id) }}" class="btn btn-primary btn-sm">
-                                                Lihat Detail
+                                            <a href="{{ route('company.contact', $savedJob->jobListing->company->id) }}" class="btn btn-primary btn-sm">
+                                                Hubungi Perusahaan
                                             </a>
                                             <form action="{{ route('saved.remove', $savedJob->jobListing->id) }}" method="POST" style="display: inline;">
                                                 @csrf

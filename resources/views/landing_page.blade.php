@@ -232,6 +232,7 @@
                                         @if(auth()->user()->role === 'perusahaan')
                                             <li><a class="dropdown-item" href="{{ route('employer.profile') }}">Profile</a></li>
                                             <li><a class="dropdown-item" href="{{ url('/change_password') }}">Change password</a></li>
+                                            <li><a class="dropdown-item" href="{{ route('job.list') }}">Job Posted</a></li>
                                         @endif
 
                                         <li><hr class="dropdown-divider"></li>

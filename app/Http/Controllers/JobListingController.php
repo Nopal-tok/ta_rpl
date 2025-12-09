@@ -31,7 +31,7 @@ class JobListingController extends Controller
     {
         $job = JobListing::with('company')->where('id', $id)->firstOrFail();
     
-        return view('job_detail', compact('job'));
+            return view('job_detail', compact('job'));
     }
 
     public function search(Request $request)
@@ -90,6 +90,84 @@ class JobListingController extends Controller
     public function create()
     {
         return view('formpostingjob');
+    }
+
+    /**
+     * Show the form to edit a job listing.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Contracts\View\View
+     */
+    public function edit($id)
+    {
+        $job = JobListing::findOrFail($id);
+        
+        // Authorization: ensure user owns the company that posted this job
+        if ($job->company_id !== Auth::user()->company->id) {
+            abort(403, 'Unauthorized');
+        }
+        
+        return view('formpostingjob', compact('job'));
+    }
+
+    /**
+     * Update a job listing in the database.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function update(Request $request, $id)
+    {
+        $job = JobListing::findOrFail($id);
+        
+        // Authorization: ensure user owns the company that posted this job
+        if ($job->company_id !== Auth::user()->company->id) {
+            abort(403, 'Unauthorized');
+        }
+        
+        $request->validate([
+            'company_name' => 'required',
+            'job_address' => 'required',
+            'nama_pekerjaan' => 'required',
+            'jobType' => 'required',
+            'pengalaman_minimal' => 'required',
+            'pendidikan_minimal' => 'required',
+            'gaji' => 'required',
+            'deskripsi_kualifikasi' => 'required',
+        ]);
+        
+        $job->update([
+            'nama_pekerjaan' => $request->nama_pekerjaan,
+            'jenis_pekerjaan' => $request->jobType,
+            'pengalaman_minimal' => $request->pengalaman_minimal,
+            'pendidikan_minimal' => $request->pendidikan_minimal,
+            'lokasi' => $request->job_address,
+            'gaji' => $request->gaji,
+            'deskripsi_kualifikasi' => $request->deskripsi_kualifikasi,
+        ]);
+        
+        return redirect()->route('job.list')->with('success', 'Job updated successfully');
+    }
+
+    /**
+     * Delete a job listing from the database.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function destroy($id)
+    {
+        $job = JobListing::findOrFail($id);
+        
+        // Authorization: ensure user owns the company that posted this job
+        if ($job->company_id !== Auth::user()->company->id) {
+            abort(403, 'Unauthorized');
+        }
+        
+        $job->delete();
+        
+        return redirect()->route('job.list')->with('success', 'Job deleted successfully');
     }
 
 }

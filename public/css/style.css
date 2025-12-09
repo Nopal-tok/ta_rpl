@@ -434,12 +434,7 @@ input.form-control {
         }
 
         /* Card Styling */
-        .profile-card {
-            max-width: 900px;
-            margin: auto;
-            border-radius: 12px;
-            padding: 30px;
-        }
+
 
         /* Detail Pekerjaan */
         .job-title-post {
@@ -532,6 +527,185 @@ input.form-control {
             justify-content: center;
         }
 
+        :root {
+    --dark-blue: #002244;
+    /* Warna utama Footer & Tombol Custom */
+    --danger-red: #dc3545;
+    /* Warna Tombol Log In/Join Now */
+}
+
+/* Gaya Tombol Kustom (Warna sama dengan Footer) */
+.btn-custom-dark {
+    background-color: var(--dark-blue);
+    border-color: var(--dark-blue);
+    color: white;
+    transition: background-color 0.2s;
+}
+
+.btn-custom-dark:hover {
+    background-color: #003366;
+    border-color: #003366;
+    color: white;
+}
+
+/* HERO/HEADER STYLES */
+.hero {
+    /* Perlu mengganti placeholder image asset Anda dengan gambar yang sesuai */
+    background-image: url("{{ asset('img/image 3.png') }}");
+    background-size: cover;
+    background-position: center;
+    height: 580px;
+    position: relative;
+    /* Menambahkan overlay gelap agar teks lebih terlihat */
+    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.4);
+}
+
+/* Navbar adjustment for design alignment */
+.custom-navbar {
+    padding: 1rem 3rem;
+    /* Padding horizontal yang lebih besar */
+}
+
+.search-box {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    /* Dibuat lebih lebar */
+    max-width: 1000px;
+    /* Dibuat lebih lebar */
+}
+
+/* Search input adjustments */
+.search-row .form-control {
+    border: 1px solid #ced4da;
+}
+
+/* STYLE CHIP YANG DIKLIK (Revisi agar tombol More menjadi tautan biasa) */
+.filter-chip-link {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    color: #495057;
+    padding: 5px 15px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    margin-right: 8px;
+    display: inline-block;
+    text-decoration: none;
+    transition: background-color 0.2s, color 0.2s;
+    white-space: nowrap;
+    /* Mencegah wrap jika terlalu banyak chip */
+}
+
+.filter-chip-link:hover {
+    background-color: #e9ecef;
+    color: var(--dark-blue);
+    border-color: #ced4da;
+}
+
+.filter-link-more {
+    color: var(--dark-blue);
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 5px 0;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+/* INTRODUCING HOBLOOP STYLES (Diperbaiki agar sesuai dengan desain) */
+.intro-link-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 0.2s;
+}
+
+.intro-link-card:hover {
+    opacity: 0.95;
+}
+
+.intro-container {
+    position: relative;
+    display: flex;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    /* Menambahkan shadow yang lebih lembut */
+}
+
+.intro-card-img-container {
+    width: 50%;
+    /* 50% untuk gambar */
+}
+
+.intro-card-img {
+    width: 100%;
+    height: 400px;
+    /* Mengurangi tinggi sedikit agar lebih proporsional */
+    object-fit: cover;
+    display: block;
+}
+
+.intro-card-overlay {
+    position: static;
+    /* Dihapus posisi absolute */
+    width: 50%;
+    /* 50% untuk konten */
+    background-color: white;
+    padding: 30px;
+    transform: none;
+    box-shadow: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.intro-card-list-item {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+/* CONNECTING OPPORTUNITIES STYLES */
+.stat-card {
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 0 !important;
+    background-color: white;
+    height: 100%;
+    /* Memastikan kedua kartu tingginya sama */
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-card-content {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-card-content p {
+    flex-grow: 1;
+}
+
+.stat-card-img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Footer HobLoop font style */
+.footer-logo {
+    font-weight: 900 !important;
+    /* Extra bold */
+    font-size: 3rem;
+    /* Disesuaikan agar lebih besar */
+}
 @media (max-width: 1000px) {
     .contact-box {
         margin-left: 0;

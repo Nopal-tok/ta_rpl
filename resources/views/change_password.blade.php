@@ -50,6 +50,7 @@
                                     @if(auth()->user()->role === 'perusahaan')
                                         <li><a class="dropdown-item" href="{{ route('employer.profile') }}">Profile</a></li>
                                         <li><a class="dropdown-item" href="{{ url('/change_password') }}">Change password</a></li>
+                                        <li><a class="dropdown-item" href="{{ route('job.list') }}">Job Posted</a></li>
                                     @endif
                                     <li><hr class="dropdown-divider"></li>
                                     <li>
@@ -100,16 +101,19 @@
             </div>
         @endif
 
-        <form action="/change_password" method="POST">
+        <form action="{{ route('password.update') }}" method="POST">
             @csrf
             <div class="profile-card card shadow-sm border-0">
                 <div class="card-body">
                     <div class="text-password fw-medium position-relative mb-3">
                         <label class="form-label">Current password</label>
 
-                        <input type="password" name="current_password" class="form-control" id="current_pass">
+                        <input type="password" name="current_password" class="form-control @error('current_password') is-invalid @enderror" id="current_pass">
+                        @error('current_password')
+                            <div class="invalid-feedback d-block">{{ $message }}</div>
+                        @enderror
 
-                        <span class="toggle-pass position-absolute translate-middle-y" data-target="passInput"
+                        <span class="toggle-pass position-absolute translate-middle-y" data-target="current_pass"
                             style="cursor:pointer; right:12px; top:50px;">
 
                             <svg class="eye-closed" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -127,9 +131,12 @@
                     <div class="text-password fw-medium position-relative mb-3">
                         <label class="form-label">New password</label>
 
-                        <input type="password" name="new_password" class="form-control" id="new_pass">
+                        <input type="password" name="new_password" class="form-control @error('new_password') is-invalid @enderror" id="new_pass">
+                        @error('new_password')
+                            <div class="invalid-feedback d-block">{{ $message }}</div>
+                        @enderror
 
-                        <span class="toggle-pass position-absolute translate-middle-y" data-target="passInput"
+                        <span class="toggle-pass position-absolute translate-middle-y" data-target="new_pass"
                             style="cursor:pointer; right:12px; top:50px;">
 
                             <svg class="eye-closed" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -147,9 +154,12 @@
                     <div class="text-password fw-medium position-relative mb-3">
                         <label class="form-label">Confirm password</label>
 
-                        <input type="password" name="confirm_password" class="form-control" id="confirm_pass">
+                        <input type="password" name="confirm_password" class="form-control @error('confirm_password') is-invalid @enderror" id="confirm_pass">
+                        @error('confirm_password')
+                            <div class="invalid-feedback d-block">{{ $message }}</div>
+                        @enderror
 
-                        <span class="toggle-pass position-absolute translate-middle-y" data-target="passInput"
+                        <span class="toggle-pass position-absolute translate-middle-y" data-target="confirm_pass"
                             style="cursor:pointer; right:12px; top:50px;">
 
                             <svg class="eye-closed" width="24" height="24" viewBox="0 0 24 24" fill="none"

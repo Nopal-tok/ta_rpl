@@ -89,6 +89,9 @@ Route::middleware(['auth', 'role:perusahaan'])->group(function () {
     // Posting Job
     Route::get('/formpostingjob', [JobListingController::class, 'create']);
     Route::post('/job/store', [JobListingController::class, 'store'])->name('job.store');
+    Route::get('/job/{id}/edit', [JobListingController::class, 'edit'])->name('job.edit');
+    Route::put('/job/{id}', [JobListingController::class, 'update'])->name('job.update');
+    Route::delete('/job/{id}', [JobListingController::class, 'destroy'])->name('job.destroy');
 
     Route::get('/list-jobs', [JobListingController::class, 'index'])->name('job.list');
 
@@ -96,6 +99,9 @@ Route::middleware(['auth', 'role:perusahaan'])->group(function () {
 
 
 Route::get('/search', [JobListingController::class, 'search'])->name('job.search');
+
+// Public company contact page
+Route::get('/company/{id}', [App\Http\Controllers\ProfileController::class, 'companyContact'])->name('company.contact');
 
 // ======================
 // PUBLIC JOB LISTING (guest & auth)
@@ -106,8 +112,8 @@ Route::get('/job/{id}', [JobListingController::class, 'show'])->name('job.show')
 // CHANGE PASSWORD (semua role boleh)
 // ======================
 Route::middleware('auth')->group(function () {
-    Route::get('/change_password', [ProfileController::class, 'changePasswordPage']);
-    Route::post('/change_password', [ProfileController::class, 'changePassword']);
+    Route::get('/change_password', [ProfileController::class, 'changePasswordPage'])->name('change_password.show');
+    Route::post('/change_password', [ProfileController::class, 'changePassword'])->name('password.update');
     Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
 });
 
