@@ -8,7 +8,7 @@ class JobListing extends Model
 {
     protected $fillable = [
         'company_id','nama_pekerjaan','jenis_pekerjaan',
-        'pengalaman_minimal','pendidikan_minimal','gaji','deskripsi_kualifikasi'
+        'pengalaman_minimal','pendidikan_minimal','lokasi','gaji','deskripsi_kualifikasi'
     ];
 
     public function company() { return $this->belongsTo(Company::class); }

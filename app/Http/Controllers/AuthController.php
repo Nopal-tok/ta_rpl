@@ -6,15 +6,19 @@ use App\Models\User;
 use App\Models\Profile;
 use App\Models\Company;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
+    // ============================
+    // REGISTER PELAMAR
+    // ============================
     public function registerSeeker(Request $request)
     {
         $request->validate([
-            'email' => 'required|email|unique:users',
-            'password' => 'required|min:6|confirmed'
+            'email' => 'required|email|unique:users,email|regex:/^[a-zA-Z0-9._%+-]+@gmail\.com$/',
+            'password' => 'required|min:8|confirmed'
         ]);
 
         $user = User::create([
@@ -25,19 +29,23 @@ class AuthController extends Controller
 
         Profile::create([
             'user_id' => $user->id,
-            'nama' => '',
+            'email' => $request->email,
         ]);
 
-        return response()->json([
-            'message' => 'Register pelamar berhasil'
-        ], 201);
+        Auth::login($user);
+        $request->session()->regenerate();
+
+        return redirect()->route('seeker.login');
     }
 
+    // ============================
+    // REGISTER PERUSAHAAN
+    // ============================
     public function registerCompany(Request $request)
     {
         $request->validate([
-            'email' => 'required|email|unique:users',
-            'password' => 'required|min:6|confirmed'
+            'email' => 'required|email|unique:users,email|regex:/^[a-zA-Z0-9._%+-]+@gmail\.com$/',
+            'password' => 'required|min:8|confirmed'
         ]);
 
         $user = User::create([
@@ -48,60 +56,61 @@ class AuthController extends Controller
 
         Company::create([
             'user_id' => $user->id,
-            'nama_perusahaan' => '',
-            'alamat_perusahaan' => '',
+            'email_perusahaan' => $request->email,
         ]);
 
-        return response()->json([
-            'message' => 'Register perusahaan berhasil'
-        ], 201);
+        Auth::login($user);
+        $request->session()->regenerate();
+
+        return redirect()->route('employer.login');
     }
 
+    // ============================
+    // LOGIN PELAMAR
+    // ============================
     public function loginSeeker(Request $request)
     {
         $request->validate([
-            'email' => 'required',
-            'password' => 'required'
+            'email' => 'required|email|regex:/^[a-zA-Z0-9._%+-]+@gmail\.com$/',
+            'password' => 'required|min:8'
         ]);
 
         $user = User::where('email', $request->email)
-            ->where('role', 'pelamar')
-            ->first();
+                    ->where('role', 'pelamar')
+                    ->first();
 
         if (!$user || !Hash::check($request->password, $user->password)) {
-            return response()->json(['message' => 'Login gagal'], 401);
+            return back()->with('error', 'Email atau password salah atau bukan akun pelamar.');
         }
 
-        $token = $user->createToken('token')->plainTextToken;
+        Auth::login($user);
+        $request->session()->regenerate();
 
-        return response()->json([
-            'message' => 'Login pelamar berhasil',
-            'token' => $token,
-            'role' => $user->role
-        ]);
+        return redirect()->route('seeker.profile');
     }
 
+    // ============================
+    // LOGIN PERUSAHAAN
+    // ============================
     public function loginCompany(Request $request)
     {
         $request->validate([
-            'email' => 'required',
-            'password' => 'required'
+            'email' => 'required|email|regex:/^[a-zA-Z0-9._%+-]+@gmail\.com$/',
+            'password' => 'required|min:8'
         ]);
 
         $user = User::where('email', $request->email)
-            ->where('role', 'perusahaan')
-            ->first();
+                    ->where('role', 'perusahaan')
+                    ->first();
 
         if (!$user || !Hash::check($request->password, $user->password)) {
-            return response()->json(['message' => 'Login gagal'], 401);
+            return back()->with('error', 'Email atau password salah atau bukan akun perusahaan.');
         }
 
-        $token = $user->createToken('token')->plainTextToken;
+        Auth::login($user);
+        $request->session()->regenerate();
 
-        return response()->json([
-            'message' => 'Login perusahaan berhasil',
-            'token' => $token,
-            'role' => $user->role
-        ]);
+        return redirect()->route('employer.profile');
     }
 }
+

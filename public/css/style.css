@@ -1,0 +1,598 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif !important;
+    font-style: normal;
+}
+
+.navbar-brand {
+    margin-right: 72px;
+}
+
+.nav-gap {
+    display: flex;
+    gap: 24px;
+}
+
+.nav-link {
+    color: #363636;
+    font-weight: 600;
+    font-size: 20px;
+    padding: 12px;
+}
+
+.nav-link.dropdown-toggle::after {
+    display: none !important;
+}
+
+.nav-link.dropdown-toggle svg {
+    transition: transform .2s;
+}
+
+.nav-link.dropdown-toggle.show svg {
+    transform: rotate(180deg);
+}
+
+.navbar-text {
+    color: #003366;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.logo-header {
+    font-size: 42px !important;
+}
+
+.text-role > a{
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: underline;
+    color: #003366;
+}
+
+.dropdown-item {
+    color: #363636;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.main-content {
+    margin-top: 24px;
+}
+
+.headline-text {
+    margin-bottom: 48px;
+}
+
+.forgot-pass-text {
+    font-size: 14px;
+    color: #363636;
+    text-decoration: none;
+}
+
+.headline-text-content {
+    font-size: 32px;
+}
+
+.form-content {
+    border-radius: 24px !important;
+    padding: 72px 46px 46px 24px;
+}
+
+.text-email, .text-password, .text-confirm-password {
+    font-size: 16px;
+    color: #363636;
+    margin-bottom: 24px;
+}
+
+input.form-control {
+    border: 2px solid #003366;
+    border-radius: 8px;
+}
+
+.register-login {
+    padding: 12px 0px;
+    margin-top: 12px;
+    background-color: #003366;
+    text-decoration: none;
+}
+
+.register-login:hover, .register-login:focus {
+    background-color: #002244;
+}
+
+.divider {
+    font-size: 14px;
+    color: #363636;
+}
+
+.divider hr {
+    border: none;
+    height: 1px;
+    background-color: #363636;
+    margin: 0px 24px;
+}
+
+.google-button, .google-button:hover, .google-button:focus {
+    color: #363636;
+    padding: 12px 0px;
+    border: 2px solid #003366;
+    gap: 8px;
+}
+
+.register-login-bottom-text {
+    margin-top: 24px;
+    gap: 2px;
+}
+
+.register-login-bottom-text p{
+    font-size: 14px;
+    color: #363636;
+}
+
+.register-login-bottom-text > a{
+    font-size: 14px;
+    color: #000000;
+    text-decoration: underline;
+}
+
+.profile-text {
+    font-size: 36px;
+    font-weight: 600;
+    color: #363636;
+    margin-bottom: 24px;
+}
+
+.profile-card {
+    border-radius: 24px;
+    padding: 0;
+    margin-bottom: 100px;
+}
+
+.profile-card .card-body {
+    padding: 24px 36px !important;
+}
+
+.profile-header {
+    position: relative;
+    background-color: #003366;
+    padding: 16px;
+    border-radius: 24px;
+}
+
+.highlight-name {
+    font-size: 32px;
+    margin: 0;
+    text-align: center;
+}
+
+.contact-box {
+    row-gap: 12px;
+    margin-left: 144px;
+}
+
+.contact-box span {
+    font-size: 16px;
+}
+
+.btn-edit {
+    width: 64px;
+    height: 64px;
+    background-color: #003366;
+    text-decoration: none;
+    border-radius: 12px;
+
+    position: absolute;
+    bottom: -48px;
+    right: 24px;
+    z-index: 10;
+}
+
+.btn-save {
+    width: 206px;
+    height: 72px;
+    background-color: #003366;
+    padding: 24px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    gap: 10px;
+    position: absolute;
+    bottom: -48px;
+    right: 24px;
+    z-index: 10;
+}
+
+.about-section {
+    margin: 0px 36px;
+}
+
+.company-about-text {
+    height: 180px;
+    resize: none;
+    border-radius: 12px;
+    padding: 16px;
+    font-size: 15px;
+    border: 1px solid #003366;
+}
+
+.company-about-text p {
+    font-size: 16px;
+    font-weight: 400;
+    color: #363636;
+    text-align: start;
+}
+
+.profile-section-title {
+    font-size: 24px;
+    color: #363636;
+    margin-bottom: 24px;
+    padding: 24px 36px 0px;
+}
+
+.personal-information {
+    padding: 0px 36px 24px;
+}
+
+.text-secondary.small {
+    font-size: 14px;
+    color: #363636 !important;
+    font-weight: 500;
+}
+
+.fw-normal.data-value {
+    color: #363636;
+    font-weight: 400;
+}
+
+.cv-upload-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 10px;
+    text-align: center;
+    background-color: #f7f7f7;
+    width: 100%;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    transition: border-color 0.2s, background-color 0.2s;
+}
+
+.cv-upload-card.drag-active {
+    border: 2px dashed #007bff;
+    background-color: #e6f3ff;
+}
+
+.cv-upload-card.file-selected {
+    border: 2px solid #28a745;
+}
+
+#cvInputFile {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+#cvDropArea {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+#cvDropArea svg {
+    margin-bottom: 5px;
+    stroke: #B2B2B2;
+}
+
+#cvDropArea p.fw-normal {
+    font-weight: normal;
+    margin-bottom: 2px;
+    color: #555;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 90%;
+}
+
+#cvDropArea p.text-secondary {
+    color: #888;
+    font-size: 0.75em;
+    font-weight: 500;
+}
+
+select.form-control {
+    border: 2px solid #003366;
+    font-size: 14px;
+}
+
+input.form-control {
+    font-size: 14px;
+}
+
+.text-timer {
+    font-size: 14px;
+    font-weight: 400;
+    color: #363636;
+}
+
+.posting-text {
+    font-size: 36px;
+    font-weight: 600;
+    color: #363636;
+    margin-bottom: 8px;
+}
+
+.text-secondary-form {
+    font-size: 16px;
+    font-weight: 400;
+    color: #B2B2B2;
+    margin-bottom: 24px;
+}
+
+.btn-save-posting {
+    width: 206px;
+    height: 72px;
+    margin-bottom: 100px;
+    background-color: #003366;
+    padding: 24px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    gap: 10px;
+    right: 24px;
+    z-index: 10;
+}
+
+.content-text-card-bottom p {
+    font-size: 16px;
+    font-weight: 400px;
+    color: #B2B2B2;
+    margin-bottom: 12px;
+}
+
+.job-title-post {
+    font-size: 36px;
+    font-weight: 600;
+    color: #363636;
+    margin-bottom: 24px;
+    text-decoration: none;
+}
+
+.job-title-post:hover {
+    text-decoration: underline;
+}
+
+.pic-wrapper {
+    width: 160px;
+    height: 160px;
+    position: relative;
+}
+
+.pic-box {
+    width: 100%;
+    height: 100%;
+    background: #d9d9d9;
+    border-radius: 12px;
+}
+
+.save-btn {
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 50%;
+    background: #003366;
+    cursor: pointer;
+    transition: background-color .25s;
+    margin-bottom: 12px;
+}
+
+.hidden {
+    fill: white;
+}
+
+#iconOutline, #iconFill {
+    transition: .18s;
+}
+
+.save-btn svg {
+    pointer-events: none;
+}
+
+.save-btn.saved #iconOutline,
+.save-btn.saved #iconFill {
+    transform: scale(0.9);
+}
+
+
+        :root {
+            --primary-color: #003366;
+            --text-dark: #0A090B;
+        }
+
+        body {
+            background-color: #f7f7f7;
+            /* Latar belakang body agar card terlihat */
+        }
+
+        .logo-header {
+            color: var(--primary-color) !important;
+            font-size: 1.5rem;
+        }
+
+        /* Card Styling */
+        .profile-card {
+            max-width: 900px;
+            margin: auto;
+            border-radius: 12px;
+            padding: 30px;
+        }
+
+        /* Detail Pekerjaan */
+        .job-title-post {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--text-dark);
+            text-decoration: none;
+        }
+
+        .company-name-text {
+            font-size: 22px;
+            color: #363636 !important;
+        }
+
+        /* Ikon dan List Detail */
+        .job-info-list {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 30px;
+        }
+
+        .job-info-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            font-size: 16px;
+            color: var(--text-dark);
+        }
+
+        .job-info-list svg {
+            /* Sesuaikan ukuran SVG agar tidak terlalu besar */
+            width: 24px;
+            height: 24px;
+            margin-right: 12px;
+            min-width: 24px;
+            /* Pastikan warna stroke/fill sesuai dengan teks detail */
+            stroke: #363636;
+        }
+
+        /* Dropdown Aksi (Titik Tiga) */
+        .action-dropdown-custom {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 10;
+        }
+
+        .save-btn {
+            width: 36px;
+            height: 36px;
+            border: none;
+            border-radius: 50%;
+            background: var(--primary-color);
+            cursor: pointer;
+            transition: background-color .25s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            padding: 0;
+        }
+
+        .red-placeholder {
+            width: 150px;
+            height: 20px;
+            background-color: #e53935;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+
+        .button-apply {
+            width: 206px;
+            font-size: 20px;
+            color: #ffffff;
+            background-color: #003366;
+            padding: 21px 52px;
+            border-radius: 12px;
+        }
+
+        .button-back-view {
+            width: 206px;
+            font-size: 20px;
+            color: #DA4242;
+            background-color: #E4E4E4;
+            padding: 21px 52px;
+            border-radius: 12px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+@media (max-width: 1000px) {
+    .contact-box {
+        margin-left: 0;
+        margin-top: 16px;
+        text-align: start;
+    }
+}
+
+@media (max-width: 768px) {
+    .highlight-name {
+        font-size: 24px;
+    }
+
+    .contact-box {
+        text-align: start;
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .btn-edit {
+        right: 16px;
+    }
+
+    .btn-save {
+        width: 45%;
+        height: auto;
+        padding: 24px;
+        right: 0;
+        bottom: -32px;
+        font-size: 14px;
+        border-radius: 10px;
+    }
+
+        .pic-wrapper {
+        width: 120px;
+        height: 120px;
+    }
+
+    .save-btn {
+        width: 32px;
+        height: 32px;
+        top: 6px;
+        right: 6px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .pic-box {
+        display: none;
+    }
+
+    .pic-wrapper {
+        width: 100px;
+        height: 100px;
+    }
+
+    .save-btn {
+        width: 30px;
+        height: 30px;
+        top: 4px;
+        right: 4px;
+    }
+}

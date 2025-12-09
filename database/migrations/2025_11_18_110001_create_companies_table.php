@@ -15,7 +15,11 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('nama_perusahaan')->nullable();
+            $table->string('email_perusahaan')->nullable();
+            $table->string('negara')->nullable();
             $table->string('alamat_perusahaan')->nullable();
+            $table->string('nomor_telepon')->nullable();
+            $table->text('about')->nullable();
             $table->timestamps();
         });
     }
