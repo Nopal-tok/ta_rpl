@@ -102,6 +102,16 @@
                     <input type="text" class="form-control py-2" name="whatsapp" placeholder="Your phone number"
                     value="{{ old('whatsapp', $profile->whatsapp) }}">
                 </div>
+                <div class="col-12 col-md-4">
+                    <label class="text-secondary fw-medium mb-1 small">Birth</label>
+                    <input type="date" class="form-control py-2" name="tanggal_lahir" placeholder="Your Birth Day"
+                    value="{{ old('tanggal_lahir', $profile->tanggal_lahir) }}">
+                </div>
+                <div class="col-12 col-md-4">
+                    <label class="text-secondary fw-medium mb-1 small">Work Experience</label>
+                    <input type="text" class="form-control py-2" name="pengalaman_kerja" placeholder="Example: 2 years at ..."
+                    value="{{ old('pengalaman_kerja', $profile->pengalaman_kerja) }}">
+                </div>
 
                 <div class="col-12 col-md-4">
                     <label class="text-secondary fw-medium mb-1 small">Last education</label>

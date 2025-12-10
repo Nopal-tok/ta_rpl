@@ -255,9 +255,8 @@
             </div>
         </nav>
  
-        <div class="container d-flex flex-column justify-content-start align-items-start h-100 pt-5">
-            <h1 class="display-5 fw-bold" style="max-width: 500px;">Find the Right Job. Build Your Career with HobLoop.</h1>
-            <p class="small text-white-50 mt-4 pt-1">971596</p>
+        <div class="container d-flex flex-column justify-content-start align-items-start h-100 pt-5 ">
+            <h1 class="display-5 fw-bold" style="max-width: 750px;">Find the Right Job. Build Your Career with HobLoop.</h1>
         </div>
 
         <div class="search-box bg-white p-4 shadow rounded-3">
@@ -290,7 +289,7 @@
             @endif
 
             @foreach($jobs as $job)
-                <div class="card shadow-sm p-4 mb-3">
+                <div class="card-result card shadow-sm gap-3 p-4 mb-3">
                     <h4 class="fw-bold">{{ $job->nama_pekerjaan }}</h4>
                     <p class="mb-1">
                         <strong>Company:</strong> {{ $job->company->nama_perusahaan ?? 'Unknown' }}
@@ -300,7 +299,7 @@
                     </p>
                     <p class="mb-2">{{ Str::limit($job->deskripsi_kualifikasi, 120) }}</p>
 
-                    <a href="{{ route('job.show', $job->id) }}" class="btn btn-custom-dark btn-sm">
+                    <a href="{{ route('job.show', $job->id) }}" class="btn btn-custom btn-sm text-white py-2" style="background-color: #003366">
                         View Job
                     </a>
                 </div>

@@ -506,6 +506,8 @@ input.form-control {
         }
 
         .button-apply {
+            text-decoration: none;
+            text-align: center;
             width: 206px;
             font-size: 20px;
             color: #ffffff;
@@ -568,12 +570,12 @@ input.form-control {
 
 .search-box {
     position: absolute;
-    bottom: 40px;
+    /* bottom: -72px !important; */
     left: 50%;
     transform: translateX(-50%);
     width: 90%;
-    /* Dibuat lebih lebar */
     max-width: 1000px;
+    margin: 48px 0px !important;
     /* Dibuat lebih lebar */
 }
 
@@ -752,21 +754,35 @@ input.form-control {
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
+    .hero {
+        height: auto !important;
+        padding-bottom: 350px !important;
+    }
 
     .pic-box {
-        display: none;
+        display: none !important;
     }
 
     .pic-wrapper {
-        width: 100px;
-        height: 100px;
+        width: 100px !important;
+        height: 100px !important;
     }
 
     .save-btn {
-        width: 30px;
-        height: 30px;
-        top: 4px;
-        right: 4px;
+        width: 30px !important;
+        height: 30px !important;
+        top: 4px !important;
+        right: 4px !important;
+    }
+
+    .search-box {
+        position: absolute !important;
+        bottom: 20px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        width: 90% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
     }
 }
